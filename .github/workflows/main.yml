@@ -1,0 +1,22 @@
+name: Deploy Hello world
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    -  name: Checkout code
+       uses: actions/checkout@v2
+
+    -  name: setup python
+       uses: actions/setup-python@v2
+       with: 
+         python-version: 3
+
+    -  name: run hello-world
+       run: python hello_world.py
